@@ -1,3 +1,4 @@
+
 var app = {
      //const key = "DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY",
      temps : [],
@@ -27,7 +28,7 @@ var app = {
      },
      makeHTML: function() {
           let theHTML = '';
-          theHTML += "<p>Temperatures: </p><br>";
+          theHTML += "<div class='textCont'><p>Temperatures: </p></div>";
           for(var i = 0; i < app.temps.length; i++){
                theHTML += "<div class='temp'>";
                if(i === 0) {
