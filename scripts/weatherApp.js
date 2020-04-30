@@ -2,6 +2,7 @@
 var app = {
      //const key = "DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY",
      temps : [],
+     keys: [],
      url: "https://api.nasa.gov/insight_weather/?api_key=DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY&feedtype=json&ver=1.0",
      initialize: function() {
           app.getData();
@@ -17,10 +18,18 @@ var app = {
                },
                success: function(data) {
                     console.log(app.url);
-                    for(var i = 499; i <= 500; i++){
-                         app.temps[i - 499] = data[i]["AT"]["av"];
+                    console.log(data['sol_keys']);
+
+                    for(i = 0; i < data["sol_keys"].length; i++){
+                         app.keys[i] = data["sol_keys"][i];
                     }
-                    //console.log(data[503]["AT"]["av"]);
+                    console.log(app.keys);
+
+                    //previous seven days average temperature
+                    for(i = 0; i < app.keys.length; i++){
+                         app.temps[i] = data[app.keys[i]]["AT"]["av"];
+                    }
+
                     console.log(app.temps);
                     app.makeHTML();
                }
@@ -29,16 +38,20 @@ var app = {
      makeHTML: function() {
           let theHTML = '';
           theHTML += "<div class='textCont'><p>Temperatures: </p></div>";
-          for(var i = 0; i < app.temps.length; i++){
-               theHTML += "<div class='temp'>";
-               if(i === 0) {
-                    theHTML += "<p>Current Sol: " + app.temps[i] + " degrees</p></div>";
-               } else {
-                    theHTML += "<p>Yestersol: " + app.temps[i] + " degrees</p></div>";
-               }
+          theHTML += "<div class='temp'><p>Current Sol: " + app.temps[6] + "</p></div>";
+          $(".dataCont").html(theHTML);
+          $("#tempHolder").text(app.temps[6]);
 
-               $(".dataCont").html(theHTML);
-          }
-     },
+     }//end makeHTML
+
 };
 app.initialize();
+
+
+//p5 for temperature canvas
+function setup(){
+
+}
+function draw(){
+     
+}
