@@ -15,20 +15,26 @@ body {
      letter-spacing: 5px;
 
 }
+.tempWrapper{
+     width: 100%;
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: space-around;
+}
 .landing {
      color: #FFC126;
      font-size: 75px;
 }
 .dataCont {
-     width: 100%;
+     width: 30%;
      display: flex;
-     text-align: center;
+     text-align: right;
      flex-flow: row wrap;
      justify-content: center;
 }
-.textCont p {font-size: 40px; font-family: "Abril Fatface", serif;}
+
 #canvasHolder {
-     width: 75%;
+     width: 50%;
 }
 .temp {
      width: 100%;

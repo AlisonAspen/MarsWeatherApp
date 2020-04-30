@@ -37,7 +37,7 @@ var app = {
      },
      makeHTML: function() {
           let theHTML = '';
-          theHTML += "<div class='textCont'><p>Temperatures: </p></div>";
+          theHTML += "<h2>Temperatures: <h2><br>";
           theHTML += "<div class='temp'><p>Current Sol: " + app.temps[6] + "</p></div>";
           $(".dataCont").html(theHTML);
           $("#tempHolder").text(app.temps[6]);
@@ -52,9 +52,11 @@ app.initialize();
 
 //p5 for temperature canvas
 function setup(){
-     var canvas = createCanvas(800, 800);
+     var canvas = createCanvas(windowWidth / 2, 800);
      background(0, 0, 0, 0);
      canvas.parent("canvasHolder");
+     textFont("Abril Fatface");
+          textAlign(CENTER, CENTER);
 }
 function draw(){
 
@@ -63,8 +65,7 @@ function draw(){
      strokeWeight(15);
      circle(width/2, height/2, 400);
      textSize(64);
-     fill(0);
+     fill(255);
      noStroke();
-
-     text(app.temps[6], width/3 , height/2);
+     text(app.temps[6], width/2, height/2);
 }
