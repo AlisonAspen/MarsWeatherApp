@@ -28,12 +28,7 @@ body {
 }
 .textCont p {font-size: 40px; font-family: "Abril Fatface", serif;}
 #canvasHolder {
-     background-color: #FFC126;
-     text-align: center;
      width: 75%;
-     border: 5px dotted #FF9505;
-     margin: 0 auto;
-     padding: 100px;
 }
 .temp {
      width: 100%;

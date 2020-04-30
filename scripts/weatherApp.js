@@ -47,11 +47,24 @@ var app = {
 };
 app.initialize();
 
+//global variables
+
 
 //p5 for temperature canvas
 function setup(){
-
+     var canvas = createCanvas(800, 800);
+     background(0, 0, 0, 0);
+     canvas.parent("canvasHolder");
 }
 function draw(){
-     
+
+     stroke(255, 193, 38);
+     fill(255, 149, 5);
+     strokeWeight(15);
+     circle(width/2, height/2, 400);
+     textSize(64);
+     fill(0);
+     noStroke();
+
+     text(app.temps[6], width/3 , height/2);
 }
