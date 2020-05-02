@@ -43,3 +43,14 @@ body {
 p {
      font-family: "Karla";
 }
+/*===== BREAKPOINTS ====*/
+/* iphone, made breakpoint earlier to catch any other sizing issues */
+@media screen and (max-width: 425px) {
+     #canvasHolder {
+          width: 75%;
+     }
+     .tempWrapper {
+          justify-content: center;
+     }
+     .dataCont {display: none;}
+}

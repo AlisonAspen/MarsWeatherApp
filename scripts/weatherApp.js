@@ -31,7 +31,7 @@ var app = {
                     }
 
                     console.log(app.temps);
-                    app.makeHTML();
+                    //app.makeHTML();
                }
           });
      },
@@ -58,8 +58,9 @@ function setup(){
      textFont("Abril Fatface");
           textAlign(CENTER, CENTER);
 }
-function draw(){
 
+
+function draw(){
      stroke(255, 193, 38);
      fill(255, 149, 5);
      strokeWeight(15);
@@ -67,5 +68,6 @@ function draw(){
      textSize(64);
      fill(255);
      noStroke();
-     text(app.temps[6], width/2, height/2);
+     let word = app.temps[6];
+     text(word, width/2, height/2);
 }
