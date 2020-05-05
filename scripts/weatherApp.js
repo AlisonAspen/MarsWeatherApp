@@ -115,7 +115,7 @@ let tempSketch = function(ts) {
           ts.stroke(255, 193, 38);
           ts.fill(255, 149, 5);
           ts.strokeWeight(15);
-          if(ts.windowWidth <= 400){
+          if(ts.windowWidth <= 420){
                ts.circle(ts.width/2, ts.height/2, 250);
           } else {
                ts.circle(ts.width/2, ts.height/2, 400);
