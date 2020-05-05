@@ -115,16 +115,29 @@ let tempSketch = function(ts) {
           ts.textSize(24);
           //textFont("Staatliches");
           ts.text("(fahrenheit)", ts.width/2, (ts.height/2) + 50);
+     };
+     ts.windowResized = function(){
+          ts.resizeCanvas(ts.windowWidth/2; 800);
      }
 };
 
 let marsDiag = function(m){
      m.setup = function() {
-
+          var canv2 = m.createCanvas(m.windowWidth/2, 800);
+          m.background(0, 0, 0, 0);
+          canv2.parent("canvasHolder2");
      };
      m.draw = function() {
-
+          m.noStroke();
+          mX = m.width/2;
+          mY = m.height/2;
+          m.circle(mX, mY, 200);
+          m.circle(mX, mY - 150, 50);
+          m.circle(mX + 100, mY - 100, 25);
      };
+     m.windowResized = function(){
+          m.resizeCanvas(m.windowWidth/2, 800);
+     }
 };
 
 
