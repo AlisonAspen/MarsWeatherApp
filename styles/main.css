@@ -48,16 +48,26 @@ h2 {
      width: 30%;
 }
 .sol {
-     
+     text-align: left;
+     width: 30%;
 }
-.headerText {
-     font-family: "Staatliches", sans-serif;
-     font-size: 36px;
+.sol h2 {
+
 }
+.sol p {
+
+}
+
 
 /*===== BREAKPOINTS ====*/
 /* iphone, made breakpoint earlier to catch any other sizing issues */
 @media screen and (max-width: 425px) {
+     .wrapper {
+          width: 75%;
+     }
+     .landing h2 {
+          font-size: 64px;
+     }
      #canvasHolder {
           width: 75%;
      }

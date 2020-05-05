@@ -61,9 +61,9 @@ app.initialize();
 
 //p5 for temperature canvas
 function setup(){
-     var canvas = createCanvas(windowWidth / 2, 800);
+     var tempCanvas = createCanvas(windowWidth / 2, 800);
      background(0, 0, 0, 0);
-     canvas.parent("canvasHolder");
+     tempCanvas.parent("canvasHolder");
      textFont("Abril Fatface");
      textAlign(CENTER, CENTER);
 }
