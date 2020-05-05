@@ -40,22 +40,27 @@ h2 {
      width: 30%;
      /*display: flex;*/
      text-align: center;
-     padding-top: 300px;
+     padding-top: 250px;
      font-family: "Karla", sans-serif;
 }
-
+.dataCont p {
+     font-size: 36px;
+     color: white;
+     text-align: left;
+}
 #canvasHolder {
      width: 30%;
 }
 .sol {
      text-align: left;
      width: 30%;
+     padding: 50px 25px;
 }
 .sol h2 {
-
+     padding-bottom: 20px;
 }
 .sol p {
-
+     line-height: 30px;
 }
 
 

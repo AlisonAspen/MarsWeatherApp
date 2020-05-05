@@ -40,13 +40,22 @@ var app = {
           let theHTML = '';
           theHTML += "<h2>(Previous) Weekly Forecast</h2><br>";
           theHTML += "<p>Current Sol: " + app.temps[6] + "</p>";
-          for(i = 5; i > 3; i--){
+          for(i = 5; i >= 0; i--){
                switch(i){
-                    case 5: theHTML += "<p>YesterSol: " + app.temps[i] + "</p>";
+                    case 5: theHTML += "<p>YesterSol:    " + app.temps[i] + "</p>";
                     break;
-                    case 4: theHTML += "<p>Sol-before-YesterSol: " + app.temps[i] + "</p>";
+                    case 4: theHTML += "<p>Current Sol -2: " + app.temps[i] + "</p>";
+                    break;
+                    case 3: theHTML += "<p>Current Sol -3: " + app.temps[i] + "</p>";
+                    break;
+                    case 2: theHTML += "<p>Current Sol -4: " + app.temps[i] + "</p>";
+                    break;
+                    case 1: theHTML += "<p>Current Sol -5: " + app.temps[i] + "</p>";
+                    break;
+                    default: theHTML += "<p>Current Sol -6: " + app.temps[i] + "</p>";
                     break;
                }
+
           }
           $(".dataCont").html(theHTML);
 
@@ -61,9 +70,9 @@ app.initialize();
 
 //p5 for temperature canvas
 function setup(){
-     var tempCanvas = createCanvas(windowWidth / 2, 800);
+     var canvas = createCanvas(windowWidth / 2, 800);
      background(0, 0, 0, 0);
-     tempCanvas.parent("canvasHolder");
+     canvas.parent("canvasHolder1");
      textFont("Abril Fatface");
      textAlign(CENTER, CENTER);
 }
