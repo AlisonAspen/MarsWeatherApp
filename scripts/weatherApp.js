@@ -3,6 +3,7 @@ var app = {
      //const key = "DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY",
      temps : [],
      keys: [],
+     wind: [],
      url: "https://api.nasa.gov/insight_weather/?api_key=DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY&feedtype=json&ver=1.0",
      initialize: function() {
           app.getData();
@@ -31,16 +32,24 @@ var app = {
                     }
 
                     console.log(app.temps);
-                    //app.makeHTML();
+                    app.makeHTML();
                }
           });
      },
      makeHTML: function() {
           let theHTML = '';
-          theHTML += "<h2>Temperatures: <h2><br>";
-          theHTML += "<div class='temp'><p>Current Sol: " + app.temps[6] + "</p></div>";
+          theHTML += "<h2>(Previous) Weekly Forecast</h2><br>";
+          theHTML += "<p>Current Sol: " + app.temps[6] + "</p>";
+          for(i = 5; i > 3; i--){
+               switch(i){
+                    case 5: theHTML += "<p>YesterSol: " + app.temps[i] + "</p>";
+                    break;
+                    case 4: theHTML += "<p>Sol-before-YesterSol: " + app.temps[i] + "</p>";
+                    break;
+               }
+          }
           $(".dataCont").html(theHTML);
-          $("#tempHolder").text(app.temps[6]);
+
 
      }//end makeHTML
 
@@ -56,7 +65,7 @@ function setup(){
      background(0, 0, 0, 0);
      canvas.parent("canvasHolder");
      textFont("Abril Fatface");
-          textAlign(CENTER, CENTER);
+     textAlign(CENTER, CENTER);
 }
 
 
@@ -70,4 +79,8 @@ function draw(){
      noStroke();
      let word = app.temps[6];
      text(word, width/2, height/2);
+     textSize(24);
+     //textFont("Staatliches");
+     text("(fahrenheit)", width/2, (height/2) + 50);
+
 }
