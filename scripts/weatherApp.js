@@ -96,7 +96,16 @@ function draw(){
 } */
 let tempSketch = function(ts) {
      ts.setup = function() {
-          var canvas = ts.createCanvas(ts.windowWidth / 2, 800);
+          var canvas;
+          if(ts.windowWidth <= 400){
+               canvas = ts.createCanvas(ts.windowWidth, 400);
+          } else if(ts.windowWidth <= 425){
+               canvas = ts.createCanvas(ts.windowWidth, 400);
+          } else if(ts.windowWidth <= 800){
+               canvas = ts.createCanvas(ts.windowWidth, 800);
+          }else {
+               canvas = ts.createCanvas(ts.windowWidth / 2, 800);
+          }
           ts.background(0, 0, 0, 0);
           canvas.parent("canvasHolder1");
           ts.textFont("Abril Fatface");
@@ -106,7 +115,12 @@ let tempSketch = function(ts) {
           ts.stroke(255, 193, 38);
           ts.fill(255, 149, 5);
           ts.strokeWeight(15);
-          ts.circle(ts.width/2, ts.height/2, 400);
+          if(ts.windowWidth <= 400){
+               ts.circle(ts.width/2, ts.height/2, 250);
+          } else {
+               ts.circle(ts.width/2, ts.height/2, 400);
+          }
+          //ts.circle(ts.width/2, ts.height/2, 400);
           ts.textSize(64);
           ts.fill(255);
           ts.noStroke();
@@ -116,14 +130,19 @@ let tempSketch = function(ts) {
           //textFont("Staatliches");
           ts.text("(fahrenheit)", ts.width/2, (ts.height/2) + 50);
      };
-     ts.windowResized = function(){
-          ts.resizeCanvas(ts.windowWidth/2; 800);
-     }
+
 };
 
 let marsDiag = function(m){
      m.setup = function() {
-          var canv2 = m.createCanvas(m.windowWidth/2, 800);
+          var canv2;
+          if(m.windowWidth <= 425) {
+               canv2 = m.createCanvas(400, 300);
+          } else if(m.windowWidth <= 800){
+               canv2 = m.createCanvas(m.windowWidth, 400);
+          } else{
+               canv2 = m.createCanvas(m.windowWidth/2, 800);
+          }
           m.background(0, 0, 0, 0);
           canv2.parent("canvasHolder2");
      };
@@ -131,17 +150,28 @@ let marsDiag = function(m){
           m.noStroke();
           mX = m.width/2;
           mY = m.height/2;
-          m.circle(mX, mY, 200);
-          m.circle(mX, mY - 150, 50);
-          m.circle(mX + 100, mY - 100, 25);
+          m.stroke(255, 193, 38);
+          m.fill(196, 89, 31);
+          if(m.windowWidth <=425) {
+               m.circle(mX, mY, 100);
+               m.stroke(117, 170, 255);
+               m.fill(0, 0, 0);
+               m.circle(mX + 75, mY - 20, 30);
+               m.circle(mX + 55, mY - 70, 25);
+          } else {
+               m.circle(mX, mY, 200);
+               m.stroke(117, 170, 255);
+               m.fill(0, 0, 0);
+               m.circle(mX + 75, mY - 150, 50);
+               m.circle(mX + 150, mY + 50, 25);
+          }
+
+          //drawing mars' moons
+
      };
-     m.windowResized = function(){
-          m.resizeCanvas(m.windowWidth/2, 800);
-     }
+
 };
 
-
-
-
+//instantiating p5 sketches
 let temperatureHolder = new p5(tempSketch);
 let marsSketch = new p5(marsDiag);
