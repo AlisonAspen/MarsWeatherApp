@@ -69,6 +69,7 @@ app.initialize();
 
 
 //p5 for temperature canvas
+/*
 function setup(){
      var canvas = createCanvas(windowWidth / 2, 800);
      background(0, 0, 0, 0);
@@ -92,4 +93,42 @@ function draw(){
      //textFont("Staatliches");
      text("(fahrenheit)", width/2, (height/2) + 50);
 
-}
+} */
+let tempSketch = function(ts) {
+     ts.setup = function() {
+          var canvas = ts.createCanvas(ts.windowWidth / 2, 800);
+          ts.background(0, 0, 0, 0);
+          canvas.parent("canvasHolder1");
+          ts.textFont("Abril Fatface");
+          ts.textAlign(ts.CENTER, ts.CENTER);
+     };
+     ts.draw = function() {
+          ts.stroke(255, 193, 38);
+          ts.fill(255, 149, 5);
+          ts.strokeWeight(15);
+          ts.circle(ts.width/2, ts.height/2, 400);
+          ts.textSize(64);
+          ts.fill(255);
+          ts.noStroke();
+          let word = app.temps[6];
+          ts.text(word, ts.width/2, ts.height/2);
+          ts.textSize(24);
+          //textFont("Staatliches");
+          ts.text("(fahrenheit)", ts.width/2, (ts.height/2) + 50);
+     }
+};
+
+let marsDiag = function(m){
+     m.setup = function() {
+
+     };
+     m.draw = function() {
+
+     };
+};
+
+
+
+
+let temperatureHolder = new p5(tempSketch);
+let marsSketch = new p5(marsDiag);
