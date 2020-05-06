@@ -112,6 +112,7 @@ let tempSketch = function(ts) {
           ts.textAlign(ts.CENTER, ts.CENTER);
      };
      ts.draw = function() {
+          ts.smooth();
           ts.stroke(255, 193, 38);
           ts.fill(255, 149, 5);
           ts.strokeWeight(15);
@@ -148,6 +149,7 @@ let marsDiag = function(m){
           canv2.parent("canvasHolder2");
      };
      m.draw = function() {
+          m.smooth();
           m.noStroke();
           mX = m.width/2;
           mY = m.height/2;
