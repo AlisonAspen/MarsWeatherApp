@@ -55,6 +55,7 @@ h2 {
      text-align: left;
      width: 30%;
      padding: 50px 25px;
+     padding-bottom: 300px;
 }
 .sol h2 {
      padding-bottom: 20px;
@@ -62,8 +63,15 @@ h2 {
 .sol p {
      line-height: 30px;
 }
+#canvasHolder2 {
+
+     position: absolute;
+
+     animation: spin 8s linear infinite;
+}
 
 
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
 /*===== BREAKPOINTS ====*/
 /* iphone, made breakpoint earlier to catch any other sizing issues */
 @media screen and (max-width: 780px) {
@@ -118,7 +126,11 @@ h2 {
           font-size: 24px;
      }
      #canvasHolder2 {
+          position: absolute;
+          top: 0px;
+          left: 0px;
           width: 100%;
+
      }
 }
 @media screen and (max-width: 380px) {

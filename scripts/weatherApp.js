@@ -135,14 +135,15 @@ let tempSketch = function(ts) {
 
 let marsDiag = function(m){
      m.setup = function() {
-          var canv2;
+          var canv2 = m.createCanvas(350, 350);
+          /*
           if(m.windowWidth <= 425) {
                canv2 = m.createCanvas(400, 300);
           } else if(m.windowWidth <= 800){
-               canv2 = m.createCanvas(m.windowWidth, 400);
+               canv2 = m.createCanvas(600, 400);
           } else{
                canv2 = m.createCanvas(m.windowWidth/2, 800);
-          }
+          }*/
           m.background(0, 0, 0, 0);
           canv2.parent("canvasHolder2");
      };
