@@ -1,6 +1,6 @@
 
 var app = {
-     //const key = "DV9GfmfFzhVDS4gqyx5nAar0bim5IxevRHp6EhlY",
+     key : config.MY_KEY,
      temps : [],
      keys: [],
      wind: [],
@@ -28,7 +28,7 @@ var app = {
 
                     //previous seven days average temperature
                     for(i = 0; i < app.keys.length; i++){
-                         app.temps[i] = data[app.keys[i]]["AT"]["av"];
+                         app.temps[i] = data[app.keys[i]]["PRE"]["av"];
                     }
 
                     console.log(app.temps);
